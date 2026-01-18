@@ -5,7 +5,6 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
 
-
 @cocotb.test()
 async def test_project(dut):
     dut._log.info("Start")
@@ -26,16 +25,16 @@ async def test_project(dut):
     dut._log.info("Test project behavior")
 
     # Set the input values you want to test 
- dut.ui_in[0].value = 0
+	dut.ui_in[0].value = 0
     dut.ui_in[1].value = 0
     dut.ui_in[2].value = 0
 
 	 # Wait for a set number of clock cycles to see the output values
 	 # In this case, 25 clock cycles
-    await ClockCycles(dut.clk, 25)
+	await ClockCycles(dut.clk, 25)
     
 	 # Assert the actual expected output of your module
- assert dut.uo_out[0].value == 1
+ 	assert dut.uo_out[0].value == 1
     assert dut.uo_out[1].value == 1
 
 	 # Repeat for other test cases
